@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Recent Orders</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/order.css" rel="stylesheet">
+    <style>
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 20px;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .table thead th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .table td, .table th {
+            vertical-align: middle;
+        }
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .table thead th {
+                font-size: 0.8rem;
+            }
+            .table td, .table th {
+                font-size: 0.9rem;
+            }
+            .table-responsive {
+                margin-top: 15px;
+            }
+        }
+        
+        /* Additional styles for table responsiveness */
+        @media (max-width: 576px) {
+            .table thead {
+                display: none;
+            }
+            .table, .table tbody, .table tr, .table td {
+                display: block;
+                width: 100%;
+            }
+            .table tr {
+                margin-bottom: 15px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                background-color: #fff;
+            }
+            .table td {
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                background-color: #f8f9fa;
+                border-right: 1px solid #ddd;
+                box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container px-3 my-5">
+        <!-- Recent orders table -->
+        <div class="card">
+            <div class="card-header">
+                <h2>Recent Orders</h2>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered m-0">
+                        <thead>
+                            <tr>
+                                <th class="text-center py-3 px-4" style="min-width: 400px;">Product Name &amp; Details</th>
+                                <th class="text-right py-3 px-4" style="width: 100px;">No Of Orders</th>
+                                <th class="text-center py-3 px-4" style="width: 120px;">Address</th>
+                                <th class="text-right py-3 px-4" style="width: 100px;">Phone</th>
+                                <th class="text-center align-middle py-3 px-0" style="width: 40px;">
+                                    <a href="#" class="shop-tooltip float-none text-light" title="Clear cart">
+                                        <i class="ion ion-md-trash"></i>
+                                    </a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody">
+                            <!-- Dynamic content will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="js/notification.js"></script>
+    <script src="js/fetchOrders.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
